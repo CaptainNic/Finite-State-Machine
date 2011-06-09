@@ -1,0 +1,12 @@
+Stripped down Finite State Machine library.
+
+Features:
+ - data storage
+ - adding state transitions
+
+Languages:
+ - JavaScript
+
+
+Adapted from Anthony Blackshaw's FSM in JavaScript (www.getme.co.uk) 2008
+	which was adapted from Noah Spurrier's Python implementation (http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/146262)
