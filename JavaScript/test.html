@@ -1,0 +1,39 @@
+<!-- 
+Test page by Nicolas Breidinger
+06/09/2011
+-->
+<html>
+<title>Test page for FSM in JavaScript</title>
+<body>
+	<script type="text/javascript" src="FSM.js"></script>
+	<script type="text/javascript">
+		var fsm = new FSM("Initialization");
+		fsm.setTransition("Initialize", "Initialization", initializeVariables, "Rest");
+		fsm.setTransition("Set Value", "Rest", setTestValue, null);
+		
+		fsm.act("Initialize"); 	//initializes two values then goes to Rest state
+		fsm.act("Set Value"); 	//sets values and nextState is null meaning there is no state change
+		
+		function initializeVariables() {
+			fsm.vars.testValue = null;
+			fsm.vars.testValue2 = null;
+			alertUser("Initializing...");
+		};
+
+		function alertUser(title) {
+			var string = title + "<br><br> Attributes in data:<br>";
+			for ( var variable in fsm.vars) {
+				string += variable + ": " + fsm.vars[variable] + "<br>";
+			}
+			string += "- - - - - - - - - -<br>"
+			document.write(string);
+		};
+
+		function setTestValue() {
+			fsm.vars['testValue'] = "a string literal";
+			fsm.vars['testValue2'] = 100;
+			alertUser("Setting Values...");
+		};
+	</script>
+</body>
+</html>

@@ -18,7 +18,7 @@ FSM.prototype.reset = function (willClearData) {
     if (willClearData) {
         this.data = null;
     }
-}
+};
 
 // Adds a new transition for the given action-state pair
 FSM.prototype.setTransition = function (action, state, callback, nextState) {
@@ -26,7 +26,7 @@ FSM.prototype.setTransition = function (action, state, callback, nextState) {
         nextState = state;
     }
     this.transitions[[action, state]] = [callback, nextState];
-}
+};
 
 // Sets the default transition to be used when an unknown action-state pair occurs
 FSM.prototype.getTransition = function (action, state) {
@@ -35,7 +35,7 @@ FSM.prototype.getTransition = function (action, state) {
     } else {
         throw Error("Unknown transition: (" + action + ", " + state + "). Default transition is not defined.");
     }
-}
+};
 
 // Process an action in the current state
 FSM.prototype.act = function (action) {
@@ -44,5 +44,5 @@ FSM.prototype.act = function (action) {
     if (this.action) {
         this.action.call(this);
     }
-    this.current_state = result[1]; // set currentState to next state
-}
+    this.currentState = result[1]; // set currentState to next state
+};
