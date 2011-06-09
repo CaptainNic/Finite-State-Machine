@@ -25,7 +25,7 @@ FSM.prototype.setTransition = function (action, state, callback, nextState) {
     if (!nextState) {
         nextState = state;
     }
-    this.transitions[[action, state] = [callback, nextState]];
+    this.transitions[[action, state]] = [callback, nextState];
 }
 
 // Sets the default transition to be used when an unknown action-state pair occurs
